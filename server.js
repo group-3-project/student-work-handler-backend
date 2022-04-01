@@ -2,6 +2,7 @@ const express =require('express');
 const app = express();
 const mongoose = require("mongoose");
 const UserRouter=require("./api/user");
+const classroomRoutes=require('./api/classroom')
 const cors=require('cors');
 var bodyParser = require('body-parser')
 require('dotenv').config();
@@ -28,7 +29,8 @@ app.use(cors());
 );
   app.use(bodyParser.json())
   app.use('/user',UserRouter)
- 
+  app.use('/classrooms', classroomRoutes);
+
 
 
 
