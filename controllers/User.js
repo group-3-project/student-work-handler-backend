@@ -62,6 +62,7 @@ exports.signup = async (req, res) => {
     token: hasht,
   });
 
+  console.log(_user.id);
   //saving in databse
   await _verf.save();
   await _user.save();

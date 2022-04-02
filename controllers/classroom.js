@@ -31,9 +31,19 @@ exports.searchCode = async (req, res) => {
 }
 
 exports.createClassroom = async (req, res) => {
-    const classroom = req.body;
-    console.log("creating new classroom  code is "+classroom);
-    const newClassroom = new classroomModel(classroom);
+    const {
+        classroomData,
+        code,
+        classroomOwner
+    } = req.body;
+    console.log("creating classroom name is "+classroomData.classroomName)
+    
+    const newClassroom = new classroomModel({
+        classroomName:classroomData.classroomName,
+        code,
+        classroomOwner
+    });
+console.log(newClassroom)
 
     try {
         await newClassroom.save();

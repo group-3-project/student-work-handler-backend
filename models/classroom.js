@@ -9,6 +9,12 @@ const classroomSchema = mongoose.Schema({
         type: String,
         default: shortid.generate
     },
+    classroomOwner: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required: true,
+    }
+    
     
 });
 
